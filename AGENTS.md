@@ -31,6 +31,15 @@
 - 用类比或比喻，不用堆砌术语
 - 不需要展开成段落，点到即止
 
+### IProyal 流量节省规则
+
+Claude Code 会话本身（API 调用 + 文件传输）消耗 IProyal Residential IP 流量。以下行为会加速消耗，需要主动避免：
+
+- **不要读入不必要的大文件**：只读任务需要的部分，用 `offset` + `limit` 参数定位具体行数，不要整文件读入
+- **不要把大命令输出直接返回上下文**：日志、安装过程等长输出，只摘取关键行，不要完整展示
+- **会话尽量聚焦**：一个会话只做一件事，避免在同一会话里积累过多上下文
+- **大文件下载/安装不需要特殊处理**：pip install、git clone 等终端命令走 VeeeVPN，不消耗 IProyal 配额，正常执行即可
+
 ## Shared Memory
 
 **Always write new instructions, rules, and memory to `AGENTS.md` only.**
