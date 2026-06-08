@@ -46,7 +46,7 @@ Crucial X9 (exFAT)
 
 ```bash
 cd ~/AI/ComfyUI
-source venv/bin/activate
+conda activate comfyui
 python main.py
 ```
 
